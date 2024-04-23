@@ -36,6 +36,12 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
+import {
+  J01Create,
+  J01Edit,
+  J01List,
+  J01Show
+} from "./pages/J01_COMM";
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
@@ -50,17 +56,17 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                dataProvider={dataProvider("http://localhost:3000/api/v1/postgres/")}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 routerProvider={routerBindings}
                 resources={[
                   {
                     name: "J01_COMM",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
+                    list: "/J01_COMM",
+                    create: "/J01_COMM/create",
+                    edit: "/J01_COMM/:id",
+                    show: "/J01_COMM/show/:id",
                     meta: {
                       canDelete: true,
                     },
@@ -127,7 +133,7 @@ function App() {
                   >
                     <Route
                       index
-                      element={<NavigateToResource resource="blog_posts" />}
+                      element={<NavigateToResource resource="J01_COMM" />}
                     />
                     <Route path="/blog-posts">
                       <Route index element={<BlogPostList />} />
@@ -140,6 +146,12 @@ function App() {
                       <Route path="create" element={<CategoryCreate />} />
                       <Route path="edit/:id" element={<CategoryEdit />} />
                       <Route path="show/:id" element={<CategoryShow />} />
+                    </Route>
+                    <Route path="/J01_COMM">
+                      <Route index element={<J01List/>} />
+                      <Route path="create" element={<J01Create />} />
+                      <Route path="edit/:id" element={<J01Edit/>} />
+                      <Route path="show/:id" element={<J01Show/>} />
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>

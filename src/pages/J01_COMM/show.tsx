@@ -6,7 +6,7 @@ import {
   TextFieldComponent as TextField,
 } from "@refinedev/mui";
 
-export const CategoryShow = () => {
+export const J01Show = () => {
   const { queryResult } = useShow({});
   const { data, isLoading } = queryResult;
 
