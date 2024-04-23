@@ -56,7 +56,7 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("http://localhost:3000/api/v1/postgres/")}
+                dataProvider={dataProvider("https://api.fake-rest.refine.dev/")}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 routerProvider={routerBindings}
